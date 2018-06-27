@@ -42,13 +42,27 @@ def main():
                     curr = curr.next
             print("Element not found")
             return
+        def delete(self,ele):
+            curr = self.head
+            i = 0
+            while curr:
+                if curr.next.data == ele:
+                    curr.next = curr.next.next
+                    print('Element deleted ',ele)
+                    return
+                else:
+                    i = i+1
+                    curr = curr.next
+            print("Element not found")
+            return  
 
     a = linkedlist()    
     while True:
         print('press 1 to insert last')
-        print('press 2 to print')
-        print('press 3 to insert first')
-        print('press 4 to search element')
+        print('press 2 to insert first')
+        print('press 3 to search element')
+        print('press 4 to delete element')
+        print('press 5 to print')
         print('Type exit to exit')
         res = input()
         if res == 'exit':
@@ -56,13 +70,16 @@ def main():
         elif res == '1':
             ele = input('enter element to enter ')
             a.insertLast(ele)
-        elif res == '3':
+        elif res == '2':
             ele = input('enter element to enter ')
             a.insertFirst(ele)    
-        elif res == '4':
+        elif res == '3':
             ele = input('search element')
-            a.search(ele)    
-        elif res == '2':
+            a.search(ele)
+        elif res == '4':
+            ele = input('delete element')
+            a.delete(ele)         
+        elif res == '5':
             a.print()          
 
 
