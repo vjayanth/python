@@ -1,16 +1,18 @@
 import sys
 
+
 def main():
     class node:
-        def __init__(self,data,left=None,right=None):
+        def __init__(self, data, left=None, right=None):
             self.data = data
             self.left = left
             self.right = right
+
     class binarytree:
         def __init__(self):
             self.head = None
 
-        def insert(self,ele):
+        def insert(self, ele):
             if self.head is None:
                 self.head = node(data=ele)
             else:
@@ -18,41 +20,42 @@ def main():
                 curr = self.head
                 while True:
                     print('in')
-                    if  curr.data == ele:
+                    if curr.data == ele:
                         print("Element alerady exists")
-                        return 
+                        return
                     elif curr.data > ele:
                         if curr.left:
-                            curr =  curr.left
+                            curr = curr.left
                         else:
                             curr.left = temp
-                            return    
+                            return
 
                     elif curr.data < ele:
                         if curr.right:
-                            curr =  curr.right
+                            curr = curr.right
                         else:
-                            curr.right = temp 
+                            curr.right = temp
                             return
+
         def printEle(self):
             curr = self.head
             if curr.data:
-                print(' ',curr.data)
+                print(' ', curr.data)
                 self.printData(curr)
 
-        def printData(self,node):
+        def printData(self, node):
             print(' ')
             if node.right:
-                print('right ele:',node.right.data,'parent:',node.data)
-                self.printData(node.right)     
+                print('right ele:', node.right.data, 'parent:', node.data)
+                self.printData(node.right)
             if node.left:
-                print('left ele:',node.left.data,'parent:',node.data)
-                self.printData(node.left) 
+                print('left ele:', node.left.data, 'parent:', node.data)
+                self.printData(node.left)
 
-        def search(self): 
-            print('in search')   
+        def search(self):
+            print('in search')
 
-    a = binarytree() 
+    a = binarytree()
     while True:
         print("Enter 1 to insert")
         print('Enter 2 to search element')
@@ -60,15 +63,16 @@ def main():
         print('Type exit to exit')
         res = input()
         if res == 'exit':
-            sys.exit() 
+            sys.exit()
         elif res == '1':
             ele = input('enter element to enter ')
             a.insert(ele)
         elif res == '2':
             ele = input('enter element to search ')
-            a.search(ele)        
+            a.search(ele)
         elif res == '3':
-            a.printEle()  
+            a.printEle()
+
 
 if __name__ == '__main__':
     main()
